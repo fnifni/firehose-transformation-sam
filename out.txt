@@ -1,1 +1,0 @@
-{"errorMessage": "'records'", "errorType": "KeyError", "requestId": "f9f89228-6530-4d9c-9b2b-da3e2cc298d0", "stackTrace": ["  File \"/var/task/app.py\", line 11, in lambda_handler\n    for record in event['records']:\n"]}
