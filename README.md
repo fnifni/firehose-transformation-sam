@@ -2,9 +2,7 @@
 
 This pattern deploys a Kinesis Data Firehose that invokes a Lambda function to transform incoming source data and deliver the transformed data to destinations. 
 
-Learn more about this pattern at Serverless Land Patterns: [https://serverlessland.com/patterns/firehose-transformation-sam](https://serverlessland.com/patterns/firehose-transformation-sam)
-
-Important: this application uses various AWS services and there are costs associated with these services after the Free Tier usage - please see the [AWS Pricing page](https://aws.amazon.com/pricing/) for details. You are responsible for any AWS costs incurred. No warranty is implied in this example.
+more information see [Redact sensitive data from streaming data in near-real time using Amazon Comprehend and Amazon Kinesis Data Firehose](https://aws.amazon.com/jp/blogs/machine-learning/redact-sensitive-data-from-streaming-data-in-near-real-time-using-amazon-comprehend-and-amazon-kinesis-data-firehose/)
 
 ## Requirements
 
@@ -31,7 +29,8 @@ Important: this application uses various AWS services and there are costs associ
 1. During the prompts:
     * Enter a stack name
     * Enter the desired AWS Region
-    * Enter a bucket name
+    * Enter a bucket name for edited data
+    * Enter a bucket name for raw data
     * Allow SAM CLI to create IAM roles with the required permissions.
 
     Once you have run `sam deploy --guided` mode once and saved arguments to a configuration file (samconfig.toml), you can use `sam deploy` in future to use these defaults.
@@ -50,21 +49,8 @@ Kinesis Data Firehose can invoke a Lambda function to transform incoming source 
 
 ## Testing
 
-1.  Navigate to the [Delivery streams](https://us-east-1.console.aws.amazon.com/firehose/home?region=us-east-1#/streams) in the console
+see [Redact sensitive data from streaming data in near-real time using Amazon Comprehend and Amazon Kinesis Data Firehose](https://aws.amazon.com/jp/blogs/machine-learning/redact-sensitive-data-from-streaming-data-in-near-real-time-using-amazon-comprehend-and-amazon-kinesis-data-firehose/)
 
-2. Select the {stack-name}-DeliveryStream-{stream-id} delivery stream
-
-3. Select 'Test with Demo Data'
-
-4. Press 'Start sending demo data'
-
-5. After a few seconds, press 'Stop sending demo data'
-
-6. Check that test events are being sent to the destination S3 bucket (it will take a few minutes for events to begin streaming):
-
-```
-aws s3 ls s3://{destination bucket name} --recursive --human-readable --summarize
-```
 
 Or nagivate to the S3 console and manually verify that the demo data has been sent to S3
 
